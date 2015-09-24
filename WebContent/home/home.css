@@ -1,0 +1,43 @@
+@CHARSET "EUC-KR";
+
+* {
+	/* */
+	border: 1px solid black;
+}
+
+#body {
+	width: 900px;
+	/* overflow: hidden; */
+	position: relative;
+}
+
+#top {
+	/* width: 900px; */
+	height: 80px;
+}
+
+#left {
+	/* float: left; */
+	/* position: absolute; */
+	position: absolute;
+	width: 250px;
+	height: 400px;
+	/* overflow: hidden; */
+}
+
+#main {
+	margin-left: 250px;
+	/* position: fixed; */
+	/* position: absolute;
+	left: 250px; */
+	 width: 650px; 
+	/* float: none; */
+	height: 400px;	
+	/* overflow: auto;  */
+}
+
+#bottom {
+	/* width: 900px; */
+	height: 80px;
+	clear: left;
+}

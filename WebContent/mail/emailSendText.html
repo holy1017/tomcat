@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#emailSend").click(function(){
+			$("#emailForm").attr({
+				"method" : "post",
+				"action" : "emailSendText.jsp"
+			});			
+			$("#emailForm").submit();
+		});
+	});
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="emailForm" id="emailForm">
+		<table border="1">
+			<thead>
+				<td colspan="4" class="tc"><h3>이메일 보내기</h3></td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>받는 사람 이메일 주소</td>
+					<td><input type="text" name="receiveEmail" size="30"
+						maxlength="50"></td>
+						<td>받는 사람 이름</td>
+					<td><input type="text" name="receiveName" size="30"
+						maxlength="30"></td>
+				</tr>
+				<tr>
+					<td>보내는 사람 이메일 주소</td>
+					<td><input type="text" name="sendEmail" size="30"
+						maxlength="50" value="zmffkdlakznf@gmail.com"></td>
+					<td>보내는 사람 이름</td>
+					<td><input type="text" name="sendName" size="30"
+						maxlength="30" value="solmin"></td>
+				</tr>
+				<tr>
+					<td>제 목</td>
+					<td colspan="3"><input type="text" name="subject" size="89"
+						maxlength="80"></td>
+				</tr>
+				<tr>
+					<td>내 용</td>
+					<td colspan="3"><textarea name="msg" cols="90" rows="10"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="tc"><input type="button"
+						value="이메일 보내기" id="emailSend" /> <input type="reset" value="다시쓰기" />
+					</td>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>json</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src=".js"></script> -->
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#btauto").click(function() {
+		$.ajax({
+			type:"post",
+			url:"news.jsp",
+			success:function(data){
+				$("#reload").html(data)
+			}
+		})
+	})
+})</script>
+</head>
+<body>
+	<h3>자동 갱신 페이지</h3>
+	<input type="button" value="자동갱신" id="btauto" />
+	<div id="reload"></div>
+</body>
+</html>

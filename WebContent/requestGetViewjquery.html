@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>get방식을 사용한 요청</title>
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+/*
+    jquery 사용하면 비동기 통신 객체 생성 직접할 필요가 없다.
+ 	jquery 사용하면 콜백함수를 직접 선언하지 않아도된다.
+ 	다만,콜백함수 처리 결과에 대해서는 성공했을 때와 실패했을 때로 나누어서 처리할 수 있다.
+ 	
+ 	open함수와 send함수도 직접 호출할 필요가 없다.
+ */
+	//비동기 통신 객체 생성
+	$(document).ready(function(){
+		$("#btn_request").click(function(){
+			$.ajax({
+				type:"GET",
+				url:"./requestGet.jsp",
+				success:function(data){
+					$("#d_result").html(data);
+				},
+				error:function(e){
+					alert("error");
+				}
+			})
+		});
+	});
+	
+</script>
+</head>
+<body>
+<h3>Get방식을 사용한 요청</h3>
+<input type="button" value="요청" id="btn_request">
+<div id="d_result"> </div>
+</body>
+</html>

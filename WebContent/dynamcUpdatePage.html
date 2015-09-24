@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>버튼을 눌렀을 때 화면이 자동 갱신되는 코드</title>
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	/* var xhrObject;
+	//비동기 통신 객체 생성
+	function createRequest() {
+		try {
+			xhrObject = new XMLHttpRequest();
+		} catch (trymicrosoft) {
+			try {
+				xhrObject = new ActiveXObject("Msxml2.XMLHTTP");
+			} catch (othermicrosoft) {
+				try {
+					xhrObject = new ActiveXobject("Microsoft.XMLHTTP");
+				} catch (failed) {
+					xhrObject = null;
+				}
+			}
+
+		}
+		if (xhrObject == null) {
+			alert("Error creating XMLHttpRequest Object!!!"); 
+	}
+	}//////////// end of creatRequest ///////////////////
+	function startMethod(){
+		
+			createRequest();
+			var url="./dynamicUpdateAction.jsp?timestamp="+new Date().getTime();
+			xhrObject.onreadystatechange = resultProcess;
+			xhrObject.open("GET",url,true);
+			xhrObject.send(null);
+	}
+	function resultProcess(){
+		if(xhrObject.readyState == 4){
+			document.getElementById("d_reload").innerHTML= xhrObject.responseText;
+		}	
+	} */
+	
+	 $(document).ready(function(){
+		$("#btn_auto").click(function(){
+			$.ajax({
+				type:"POST",
+				url:"./dynamicUpdateAction.jsp",
+				success:function(data){
+				//dynamicUpdateAction.jsp처리가 정상적으로 되었을 때
+				//data변수에dynamicUpdateAction.jsp에서  out.print한 출력결과(outStr)가 담겨있다
+				//alert("data에는 뭐가 담겼나:" + data);
+				$("#d_reload").html(data);//html태그를 붙였으니까 
+					
+				}
+			});
+		});
+	}); 
+</script>
+</head>
+<body>
+	<h3>자동 갱신 페이지</h3>
+	<input type="button" value="자동갱신" id="btn_auto" ><!--onclick="startMethod()"를 넣으면 위 코드 사용할 수 있다  -->
+	<div id="d_reload"></div>
+
+</body>
+</html>

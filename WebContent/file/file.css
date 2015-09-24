@@ -1,0 +1,38 @@
+@CHARSET "EUC-KR";
+
+
+* {
+	/* border: 1px solid black; */
+	
+}
+table{
+	border-collapse: collapse;
+}
+/* th {
+	border: 1px solid #8000ff;
+}
+
+tr {
+	border: 1px solid #800000;
+} */
+.td{
+	border: 1px solid #808000;
+}
+
+input[type="text"] {
+	border: 1px solid #ff0000;
+	height: 100%;
+	width: 100%;
+}
+
+input[type="file"] {
+	border: 1px solid #ff8000;
+	height: 100%;
+	width: 100%;
+}
+
+input[type="button"] {
+	border: 1px solid #008000;
+	height: 100%;
+	width: 50%;
+}
