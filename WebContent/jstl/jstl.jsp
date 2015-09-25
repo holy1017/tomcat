@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -14,6 +15,60 @@
 <script type="text/javascript"></script>
 </head>
 <body>
+
+<c:set var="addr" value="asdfka lfnkjaf dnafd" />
+${addr }<br>
+${fn:length(addr) }<br>
+${fn:substring(addr,2,3) }<br>
+${fn:trim(addr) }<br>
+<c:out var="telnum"value="82-2-045-6546-4861"></c:out> 
+<c:out var="subnum" value="${fn:split(telnum,'-') }"></c:out>
+${telnum }
+${fn:join(subnum,":") }
+
+0
+<c:out value="<br>" escapeXml="true"></c:out>1
+<c:out value="<br>" escapeXml="false"></c:out>2
+3
+<c:catch var="err"><%=2/0 %></c:catch>
+<c:if test="${!(empty err) }">
+에러발생</c:if>
+<%-- <c:import url="/if.jsp"></c:import>  --%>
+<c:import url="책.jsp" var="choose"></c:import>
+${choose }
+<c:import url="http://java.sun.com" var="java"></c:import>
+${java }
+
+	<c:set var="str" value="어쩌구  저쩌구 쫑알쫑알"></c:set>
+	${str }
+	<br> 
+	<c:forTokens var="token" items="${str }" delims="구쫑">${token }</c:forTokens>
+
+	<c:set var="sum" value="0" />
+	<c:set var="score" value="<%=new int[] { 95, 88, 77, 45, 99 }%>" />
+	<c:forEach var="point" items="${score }">
+	${point}<br>
+		<c:set var="sum" value="${sum+point }" />
+		<br>
+	</c:forEach>
+
+
+	<c:set var="sum" value="0" />
+	<c:forEach var="i" begin="3" end="100" step="3">
+	${i}<br>
+		<c:set var="sum" value="${sum+i }" />
+	${sum}<br>
+	</c:forEach>
+
+	<c:set target="${sessionScope }" property="name" value="홍길동" />
+	<c:set target="${sessionScope }" property="id" value="asdf" />
+	<c:set target="${sessionScope }" property="pw" value="zxcv" />
+
+	<c:forEach var="i" items="${ sessionScope}">
+${i.key }<br>
+${i.value }<br>
+	</c:forEach>
+
 	<c:out value="sakdfjalskf" />
 	<c:set var="setStr" value="set sadfsajlka;flaj" />
 	${setStr }
