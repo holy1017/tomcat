@@ -4,6 +4,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="my" uri="/WEB-INF/tld/hello.tld"%>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -15,14 +17,16 @@
 <script type="text/javascript"></script>
 </head>
 <body>
-
+<mytag:hel/>
+<my:hello/>
+test<br>t
 <c:set var="addr" value="asdfka lfnkjaf dnafd" />
 ${addr }<br>
 ${fn:length(addr) }<br>
 ${fn:substring(addr,2,3) }<br>
 ${fn:trim(addr) }<br>
-<c:out var="telnum"value="82-2-045-6546-4861"></c:out> 
-<c:out var="subnum" value="${fn:split(telnum,'-') }"></c:out>
+<c:set var="telnum" value="82-2-045-6546-4861"></c:set> 
+<c:set var="subnum" value="${fn:split(telnum,'-') }"></c:set>
 ${telnum }
 ${fn:join(subnum,":") }
 

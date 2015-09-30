@@ -10,7 +10,7 @@ public class DeptController {
 	Logger logger = Logger.getLogger(DeptController.class);
 	@RequestMapping(value="/getDeptList.do")
 	public String getDeptList(){
-		logger.info("getDeptList ȣ�� ����");
+		logger.info("getDeptList ȣ호출성공");
 //		return "redirect:getDeptList.jsp";
 		return "forward:getDeptList.jsp";
 	}
