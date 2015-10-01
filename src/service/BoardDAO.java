@@ -1,4 +1,4 @@
-package controller;
+package service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -74,5 +74,62 @@ public class BoardDAO {
 			}
 		}
 		return list;
+	}
+	
+	public BoardDTO detail(String num){
+
+		BoardDTO data=new BoardDTO();
+				
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = getConnection();
+			StringBuffer query = new StringBuffer();
+			query.append("	SELECT NUM,   "); 
+			query.append("      AUTHOR,   "); 
+			query.append("      TITLE,    "); 
+			query.append("      CONTENT,  "); 
+			query.append("   to_char(   WRITEDAY,'YYYY-MM-DD HH24:MI:SS') WRITEDAY, "); 
+			query.append("      READCNT,  "); 
+			query.append("      REPROOT,  "); 
+			query.append("      REPSTEP,  "); 
+			query.append("      REPINDENT"); 
+			//query.append("  ,    PASSWD    "); 
+			query.append(" FROM BOARD     "); 
+			query.append(" where num=?     "); 
+//			query.append("order by reproot desc, repstep asc ");
+			pstmt = con.prepareStatement(query.toString());
+			pstmt.setInt(1, Integer.parseInt(num));
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				//BoardDTO data = new BoardDTO();
+				data.setNum(rs.getInt("num"));
+				data.setAuthor(rs.getString("author"));
+				data.setTitle(rs.getString("title"));
+				data.setContent(rs.getString("content"));
+				data.setWriteday(rs.getString("writeday"));
+				data.setReadcnt(rs.getInt("readcnt"));
+//				data.setReproot(rs.getInt("reproot"));
+//				data.setRepstep(rs.getInt("repstep"));
+//				data.setRepindent(rs.getInt("repindent"));
+//				list.add(data);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return data;
+		
 	}
 }

@@ -10,7 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import controller.BoardDTO;
+import service.BoardDTO;
 
 public class BoardDAO {
 	DataSource ds;
