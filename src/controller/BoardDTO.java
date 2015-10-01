@@ -1,4 +1,4 @@
-package com.vo;
+package controller;
 
 public class BoardDTO {
 	   private int num; 			//글 번호

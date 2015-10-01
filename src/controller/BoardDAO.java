@@ -1,4 +1,4 @@
-package com.dao;
+package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-import com.vo.BoardDTO;
 
 public class BoardDAO {
 	DataSource ds;
